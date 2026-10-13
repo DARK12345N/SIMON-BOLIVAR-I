@@ -1,0 +1,609 @@
+/* Responsive Images and Media Queries */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive video and iframe */
+video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive tables */
+table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        font-size: 0.8rem;
+    }
+}
+
+/* Ajustes finales para pantallas pequeñas y medianas. */
+html {
+    overflow-x: hidden;
+}
+
+body {
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding-inline: 1rem;
+    }
+
+    .library-home {
+        padding-inline: 0;
+    }
+
+    .library-section,
+    .library-lower-grid {
+        padding-inline: clamp(1rem, 4vw, 2rem);
+    }
+
+    .area-grid,
+    .teacher-grid,
+    .student-grid {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 76px;
+    }
+
+    .logo {
+        max-width: 58%;
+    }
+
+    .logo img {
+        height: 72px;
+    }
+
+    .logo-text h2 {
+        font-size: clamp(.9rem, 3vw, 1.2rem);
+    }
+
+    .logo-text p {
+        font-size: .72rem;
+    }
+
+    .navbar-right {
+        min-width: 0;
+    }
+
+    .login-section {
+        margin-left: .25rem;
+    }
+
+    .login-btn span {
+        display: none;
+    }
+
+    .library-home {
+        padding-top: 76px;
+    }
+
+    .library-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 1.5rem 1rem 1.25rem;
+    }
+
+    .library-hero-copy {
+        max-width: 100%;
+    }
+
+    .library-hero h1 {
+        font-size: clamp(2rem, 8vw, 3.2rem);
+        overflow-wrap: anywhere;
+    }
+
+    .library-lead {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .library-hero-art {
+        display: none;
+    }
+
+    .resource-carousel,
+    .resource-carousel-track,
+    .resource-slide {
+        min-height: 280px;
+    }
+
+    .resource-slide {
+        height: 280px;
+    }
+
+    .resource-slide span {
+        bottom: 1.5rem;
+        left: 3.5rem;
+        max-width: calc(100% - 7rem);
+    }
+
+    .resource-slide strong {
+        font-size: clamp(1.35rem, 6vw, 2rem);
+        overflow-wrap: anywhere;
+    }
+
+    .resource-slide em {
+        font-size: .9rem;
+    }
+
+    .collection-grid,
+    .area-grid,
+    .teacher-grid,
+    .student-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: .8rem;
+    }
+
+    .area-card,
+    .teacher-button,
+    .student-button {
+        min-width: 0;
+    }
+
+    .teacher-button,
+    .student-button {
+        padding: .8rem .65rem;
+    }
+
+    .teacher-button strong,
+    .student-button strong {
+        overflow-wrap: anywhere;
+    }
+
+    .map-panel-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .map-button {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 58px;
+    }
+
+    .logo-text h2 {
+        font-size: .85rem;
+    }
+
+    .logo-text p {
+        font-size: .65rem;
+    }
+
+    .library-section,
+    .library-lower-grid {
+        padding: 2rem .85rem;
+    }
+
+    .collection-grid,
+    .area-grid,
+    .teacher-grid,
+    .student-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-slide span {
+        left: 3rem;
+        max-width: calc(100% - 6rem);
+    }
+
+    .carousel-control {
+        height: 34px;
+        width: 34px;
+    }
+
+    .carousel-prev { left: .6rem; }
+    .carousel-next { right: .6rem; }
+
+    .area-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .teacher-button,
+    .student-button {
+        justify-content: flex-start;
+    }
+
+    .school-map {
+        height: 260px;
+    }
+
+    .regulation-tab {
+        right: .2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .logo-text {
+        display: none;
+    }
+
+    .resource-slide span {
+        left: 2.7rem;
+        max-width: calc(100% - 5.4rem);
+    }
+
+    .resource-slide strong {
+        font-size: 1.25rem;
+    }
+}
+
+/* Responsive text and typography */
+@media (max-width: 768px) {
+    body {
+        font-size: 0.95rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    h4 {
+        font-size: 1.3rem;
+    }
+    
+    h5 {
+        font-size: 1.1rem;
+    }
+    
+    h6 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.4rem;
+    }
+    
+    h4 {
+        font-size: 1.2rem;
+    }
+    
+    h5 {
+        font-size: 1rem;
+    }
+    
+    h6 {
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsive spacing utilities */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .row {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+    }
+    
+    .col {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    
+    .row {
+        margin-left: -0.4rem;
+        margin-right: -0.4rem;
+    }
+    
+    .col {
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+}
+
+/* Responsive button adjustments */
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .btn-lg {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-lg {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+    
+    .btn-sm {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Responsive form adjustments */
+@media (max-width: 768px) {
+    .form-control {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
+    
+    .form-row .col {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-control {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 0.8rem;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsive card adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        padding: 0.8rem 1rem;
+    }
+    
+    .card-footer {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-body {
+        padding: 0.8rem;
+    }
+    
+    .card-header {
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .card-footer {
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* Responsive modal adjustments */
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .modal-content {
+        border-radius: 0.5rem;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-footer {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    .modal-header {
+        padding: 0.8rem;
+    }
+    
+    .modal-body {
+        padding: 0.8rem;
+    }
+    
+    .modal-footer {
+        padding: 0.8rem;
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+}
+
+/* Responsive flexbox adjustments */
+@media (max-width: 768px) {
+    .flex-row {
+        flex-direction: column;
+    }
+    
+    .flex-row > * {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-row > * {
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* Responsive text alignment */
+@media (max-width: 768px) {
+    .text-center-mobile {
+        text-align: center;
+    }
+    
+    .text-left-mobile {
+        text-align: left;
+    }
+}
+
+/* Responsive visibility */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+    
+    .show-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .hide-desktop {
+        display: none;
+    }
+    
+    .show-desktop {
+        display: block;
+    }
+}
+
+/* Responsive margins and padding */
+@media (max-width: 768px) {
+    .p-mobile {
+        padding: 1rem;
+    }
+    
+    .m-mobile {
+        margin: 1rem;
+    }
+    
+    .px-mobile {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .py-mobile {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .p-mobile {
+        padding: 0.8rem;
+    }
+    
+    .m-mobile {
+        margin: 0.8rem;
+    }
+    
+    .px-mobile {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+    
+    .py-mobile {
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+}

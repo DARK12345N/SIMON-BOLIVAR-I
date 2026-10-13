@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso - SIMON BOLIVAR I</title>
+    <link rel="stylesheet" href="styles.css?v=20260918">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <aside class="user-generator" aria-labelledby="generatorTitle">
+            <div class="generator-icon"><i class="fas fa-user-pen"></i></div>
+            <h2 id="generatorTitle">Generador de usuario</h2>
+            <p>Ingresa tus datos para crear un usuario.</p>
+            <div class="generator-fields">
+                <label for="generatorName">Nombre</label>
+                <input id="generatorName" type="text" placeholder="Tu nombre" autocomplete="given-name">
+                <label for="generatorSurname">Apellido</label>
+                <input id="generatorSurname" type="text" placeholder="Tu apellido" autocomplete="family-name">
+                <label for="generatorCi">Cédula de identidad</label>
+                <input id="generatorCi" type="text" inputmode="numeric" placeholder="Ej. 12345678" autocomplete="off">
+                <label for="generatorRole">Tipo de usuario</label>
+                <select id="generatorRole">
+                    <option value="estudiante" selected>Estudiante</option>
+                    <option value="docente">Docente</option>
+                    <option value="administrativo">Administrativo</option>
+                </select>
+                <button type="button" class="generate-user" id="generateUser">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    <span>Generar usuario</span>
+                </button>
+                <p class="generated-user" id="generatedUser" aria-live="polite"></p>
+                <p class="generated-password" id="generatedPassword" aria-live="polite"></p>
+            </div>
+        </aside>
+
+        <div class="login-header">
+            <h1><i class="fas fa-user-shield"></i></h1>
+            <h2>Acceso</h2>
+            <p>Inicia sesión para entrar al sistema escolar</p>
+        </div>
+
+        <form class="login-form" id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="userEmail"><i class="fas fa-user"></i> Correo o usuario</label>
+                <input id="userEmail" type="text" name="userEmail" placeholder="ej. admin@colegio.edu.bo" autocomplete="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
+                <div class="password-input">
+                    <input id="password" type="password" name="password" placeholder="Ingrese su contraseña" autocomplete="current-password" required>
+                    <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                        <i class="fas fa-lock"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="role"><i class="fas fa-id-card"></i> Tipo de usuario</label>
+                <select id="role" name="role" aria-label="Seleccionar tipo de usuario">
+                    <option value="estudiante" selected>Estudiante</option>
+                    <option value="docente">Docente</option>
+                    <option value="administrativo">Administrativo</option>
+                </select>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label class="checkbox-label" for="rememberMe">
+                    <input id="rememberMe" type="checkbox">
+                    <span>Recordarme</span>
+                </label>
+            </div>
+
+            <p class="login-message" id="loginMessage" aria-live="polite"></p>
+
+            <button type="submit" class="login-submit">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Iniciar sesión</span>
+            </button>
+        </form>
+
+        <div class="login-footer">
+            <a href="#" class="forgot-password" id="forgotPassword">¿Olvidaste tu contraseña?</a>
+            <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginMessage = document.getElementById('loginMessage');
+        const passwordInput = document.getElementById('password');
+        const togglePassword = document.querySelector('.toggle-password');
+        const rememberMe = document.getElementById('rememberMe');
+        const userEmail = document.getElementById('userEmail');
+        const forgotPassword = document.getElementById('forgotPassword');
+        const generatorName = document.getElementById('generatorName');
+        const generatorSurname = document.getElementById('generatorSurname');
+        const generatorCi = document.getElementById('generatorCi');
+        const generatorRole = document.getElementById('generatorRole');
+        const generateUser = document.getElementById('generateUser');
+        const generatedUser = document.getElementById('generatedUser');
+        const generatedPassword = document.getElementById('generatedPassword');
+
+        const savedUser = localStorage.getItem('schoolUser');
+        if (savedUser) {
+            userEmail.value = savedUser;
+            rememberMe.checked = true;
+        }
+
+        generateUser.addEventListener('click', () => {
+            const name = generatorName.value.trim().toLowerCase();
+            const surname = generatorSurname.value.trim().toLowerCase();
+            const ci = generatorCi.value.trim();
+            const role = generatorRole.value;
+
+            if (!name || !surname || !ci || !role) {
+                generatedUser.textContent = 'Completa todos los datos solicitados.';
+                generatedPassword.textContent = '';
+                return;
+            }
+
+            if (!/^\d+$/.test(ci)) {
+                generatedUser.textContent = 'La cédula debe contener solo números.';
+                generatedPassword.textContent = '';
+                return;
+            }
+
+            const cleanName = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+            const cleanSurname = surname.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+            const randomPart = Math.random().toString(36).slice(2, 6);
+            const username = `${cleanName.slice(0, 3)}.${cleanSurname.slice(0, 3)}${ci.slice(-4)}.${role.slice(0, 2)}${randomPart}`;
+            const passwordChars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%';
+            const randomPassword = Array.from({ length: 8 }, () => passwordChars[Math.floor(Math.random() * passwordChars.length)]).join('');
+            const password = `${cleanName.charAt(0).toUpperCase()}${cleanSurname.charAt(0)}${ci.slice(-2)}${randomPassword}`;
+            userEmail.value = username;
+            passwordInput.value = password;
+            document.getElementById('role').value = role;
+            generatedUser.textContent = `Usuario generado: ${username} (${role})`;
+            generatedPassword.textContent = `Contraseña generada: ${password}`;
+        });
+
+        togglePassword.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            togglePassword.innerHTML = isPassword
+                ? '<i class="fas fa-lock-open"></i>'
+                : '<i class="fas fa-lock"></i>';
+            togglePassword.setAttribute('aria-label', isPassword ? 'Ocultar contraseña' : 'Mostrar contraseña');
+        });
+
+        forgotPassword.addEventListener('click', (event) => {
+            event.preventDefault();
+            loginMessage.textContent = 'Contacta con la coordinación para restablecer tu contraseña.';
+            loginMessage.className = 'login-message info';
+        });
+
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const emailValue = userEmail.value.trim();
+            const passwordValue = passwordInput.value.trim();
+
+            if (!emailValue || !passwordValue) {
+                loginMessage.textContent = 'Completa el usuario y la contraseña para continuar.';
+                loginMessage.className = 'login-message error';
+                return;
+            }
+
+            if (passwordValue.length < 6) {
+                loginMessage.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+                loginMessage.className = 'login-message error';
+                return;
+            }
+
+            if (rememberMe.checked) {
+                localStorage.setItem('schoolUser', emailValue);
+            } else {
+                localStorage.removeItem('schoolUser');
+            }
+
+            loginMessage.textContent = 'Inicio de sesión correcto. Redirigiendo...';
+            loginMessage.className = 'login-message success';
+
+            const destinationByRole = {
+                estudiante: 'estudiantes.html',
+                docente: 'plantel-docente.html'
+            };
+            const destination = destinationByRole[document.getElementById('role').value] || 'index.html';
+
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 1200);
+        });
+    </script>
+</body>
+</html>

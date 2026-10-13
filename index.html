@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMON BOLIVAR I - Nivel Secundario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
+    <meta name="theme-color" content="#d40000">
+    <link rel="manifest" href="../instalar/manifest.json">
+
+</head>
+<body class="library-page">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+                <img src="Imagenes/3dgifmaker75460.gif" alt="Logo Colegio">
+            </a>
+            <div class="logo-text">
+                <h2>SIMON BOLIVAR I</h2>
+                <p>Nivel Secundario</p>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active" aria-current="page"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="comunidad.html"><i class="fas fa-users"></i> Comunidad Educativa</a></li>
+                    <li><a href="recursos.html"><i class="fas fa-book"></i> Recursos Educativos</a></li>
+                    <li><a href="contactos.html"><i class="fas fa-phone"></i> Contactos</a></li>
+                </ul>
+            </div>
+            <div class="login-section">
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-user"></i>
+                    <span>Acceso</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="library-home">
+        <section class="library-hero" aria-labelledby="library-title">
+            <div class="library-hero-copy">
+                <p class="eyebrow"><i class="fas fa-bookmark"></i> Biblioteca Virtual Escolar</p>
+                <h1 id="library-title">Aprender abre caminos.</h1>
+                <p class="library-lead">Un espacio de consulta para la comunidad educativa del Colegio Simón Bolívar I. Encuentra materias, textos y recursos para estudiar a tu ritmo.</p>
+                <form class="library-search" id="librarySearchForm" role="search">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <label class="sr-only" for="librarySearch">Buscar en la biblioteca</label>
+                    <input id="librarySearch" type="search" placeholder="¿Qué quieres aprender hoy?" autocomplete="off">
+                    <button type="submit">Buscar</button>
+                </form>
+                <p class="search-status" id="searchStatus" aria-live="polite"></p>
+            </div>
+            <div class="library-hero-art" aria-hidden="true">
+                <div class="hero-seal">
+                    <img src="Imagenes/PORTADA.png" alt="Imagen de portada del colegio">
+                </div>
+            </div>
+        </section>
+
+        <section class="library-section" aria-labelledby="collections-title">
+            <div class="resource-carousel" id="resourceCarousel" aria-label="Carrusel de textos, materias y obras">
+                <div class="resource-carousel-track">
+                    <a class="resource-slide is-active" href="recursos.html"><img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Colección de libros para lectura"><span><small>Obras escolares</small><strong>Creatividad y expresión</strong><em>Explora recursos para crear y aprender.</em></span></a>
+                    <a class="resource-slide" href="recursos.html"><img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Libros y textos de aprendizaje"><span><small>Textos de aprendizaje</small><strong>Lecturas para cada curso</strong><em>Materiales para acompañar el estudio.</em></span></a>
+                    <a class="resource-slide" href="areas-colegio.html"><img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Materiales para materias y arte"><span><small>Materias</small><strong>Áreas de formación</strong><em>Conoce las áreas del colegio.</em></span></a>
+                    <a class="resource-slide" href="recursos.html"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Persona leyendo un libro educativo"><span><small>Aprendizaje activo</small><strong>Ideas que se comparten</strong><em>Recursos para estudiar a tu ritmo.</em></span></a>
+                    <a class="resource-slide" href="https://www.minedu.gob.bo/" target="_blank" rel="noopener noreferrer"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&amp;fit=crop&amp;w=1400&amp;q=85" alt="Biblioteca con libros de consulta"><span><small>Material oficial</small><strong>Textos de aprendizaje</strong><em>Visita el Ministerio de Educación.</em></span></a>
+                </div>
+                <button class="carousel-control carousel-prev" type="button" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-control carousel-next" type="button" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+                <div class="carousel-dots" aria-label="Seleccionar imagen"></div>
+            </div>
+            <p class="empty-search" id="emptySearch" hidden>No encontramos una colección con ese término. Prueba con “lenguaje”, “matemáticas” o “textos”.</p>
+        </section>
+
+        <section class="library-lower-grid">
+            <article class="featured-resource">
+                <div class="resource-label"><i class="fas fa-lightbulb"></i> Recurso recomendado</div>
+                <h2>El conocimiento también se comparte.</h2>
+                <p>Consulta el reglamento y conoce los acuerdos que hacen posible una comunidad educativa respetuosa.</p>
+                <a class="button button-dark" href="REGLAMENTO%20INTERNO%20DE%20LA%20UNIDAD%20EDUCATIVA%202026.pdf" target="_blank" rel="noopener noreferrer">Consultar reglamento <i class="fas fa-arrow-right"></i></a>
+            </article>
+            <article class="school-note">
+                <p class="eyebrow">Nuestra biblioteca</p>
+                <h2>Un legado que sigue enseñando</h2>
+                <p>Inspirados por el pensamiento de Simón Bolívar, reunimos recursos que despiertan curiosidad, autonomía y compromiso.</p>
+                <a class="text-link" href="quienes-somos.html">Conocer la institución <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="Imagenes/PORTADA.png" alt="Portada principal" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.43.30.jpeg" alt="Instalaciones" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.54.45.jpeg" alt="Eventos" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.54.50.jpeg" alt="Deportes" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.54.53.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.54.56.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.22.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.30 (1).jpeg" alt="Actividades escolares" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.30.jpeg" alt="Instalaciones" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.35.jpeg" alt="Eventos" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.39.jpeg" alt="Deportes" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.42.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.45.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.46.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.49.jpeg" alt="Actividades" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="Imagenes/WhatsApp Image 2026-04-08 at 14.55.50.jpeg" alt="Actividades" loading="lazy">
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+        <div class="hero-quote">
+            <div class="quote-container">
+                <div class="quote-slide active">
+                    <p>"La educación es el arma más poderosa que puedes usar para cambiar el mundo"</p>
+                    <span class="quote-author">- Nelson Mandela</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación no es preparación para la vida; la educación es la vida misma"</p>
+                    <span class="quote-author">- John Dewey</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"El conocimiento es poder. La información es liberadora. La educación es la premisa del progreso"</p>
+                    <span class="quote-author">- Kofi Annan</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es la llave para abrir la puerta dorada de la libertad"</p>
+                    <span class="quote-author">- George Washington Carver</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"Un niño, un maestro, un libro y una pluma pueden cambiar el mundo"</p>
+                    <span class="quote-author">- Malala Yousafzai</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es el movimiento de la oscuridad a la luz"</p>
+                    <span class="quote-author">- Allan Bloom</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"El objetivo de la educación es preparar a los jóvenes para educarse a sí mismos durante toda su vida"</p>
+                    <span class="quote-author">- Robert M. Hutchins</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es el desarrollo del poder y el ideal del hombre"</p>
+                    <span class="quote-author">- Swami Vivekananda</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es la mejor provisión para la vejez"</p>
+                    <span class="quote-author">- Aristóteles</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es el pasaporte hacia el futuro, porque el mañana pertenece a quienes se preparan para él hoy"</p>
+                    <span class="quote-author">- Malcolm X</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es la base de la libertad y la democracia"</p>
+                    <span class="quote-author">- Horace Mann</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es el arma más poderosa para cambiar el mundo"</p>
+                    <span class="quote-author">- Nelson Mandela</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es el proceso de aprender a vivir"</p>
+                    <span class="quote-author">- John Holt</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es el camino hacia la libertad y la igualdad"</p>
+                    <span class="quote-author">- Paulo Freire</span>
+                </div>
+                <div class="quote-slide">
+                    <p>"La educación es la inversión más importante que puedes hacer en tu futuro"</p>
+                    <span class="quote-author">- Barack Obama</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comunicados Section -->
+    <section class="comunicados">
+        <h2>Comunicados</h2>
+        <div class="comunicados-container">
+            <div class="comunicado-card">
+                <div class="comunicado-fecha">2, 3, 4 de Junio 2026</div>
+                <h3>Juegos Deportivos Estudiantiles Sub 12-14</h3>
+                <p>Participación de SIMON BOLIVAR I en los Juegos Deportivos Estudiantiles Sub 12-14 YAPACANI 2026. Nuestros estudiantes representarán con orgullo a nuestra institución en las diferentes disciplinas deportivas.</p>
+                <a href="#" class="leer-mas">Leer más</a>
+            </div>
+            <div class="comunicado-card">
+                <div class="comunicado-fecha">7 de Julio 2026</div>
+                <h3>Descanso Pedagógico Invernal</h3>
+                <p>Información importante sobre el descanso pedagógico invernal. Los estudiantes y docentes tendrán un período de receso para recargar energías y prepararse para la segunda mitad del año escolar.</p>
+                <a href="#" class="leer-mas">Leer más</a>
+            </div>
+            <!-- Más comunicados se agregarán dinámicamente -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                    <li><a href="comunidad.html">Comunidad Educativa</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="recursos.html">Recursos Educativos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SIMON BOLIVAR I. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        (() => {
+            const carousel = document.querySelector('#resourceCarousel');
+            if (!carousel) return;
+            const slides = [...carousel.querySelectorAll('.resource-slide')];
+            const dots = carousel.querySelector('.carousel-dots');
+            let current = 0;
+            let timer;
+            const showSlide = (index) => {
+                current = (index + slides.length) % slides.length;
+                slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === current));
+                dots.querySelectorAll('button').forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === current));
+            };
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Mostrar imagen ${index + 1}`);
+                dot.addEventListener('click', () => showSlide(index));
+                dots.appendChild(dot);
+            });
+            carousel.querySelector('.carousel-prev').addEventListener('click', () => showSlide(current - 1));
+            carousel.querySelector('.carousel-next').addEventListener('click', () => showSlide(current + 1));
+            timer = window.setInterval(() => showSlide(current + 1), 5000);
+            showSlide(0);
+        })();
+    </script>
+    <script src="main.js"></script>
+
+    <script src="../instalar/pwa.js"></script>
+
+</body>
+</html> 
