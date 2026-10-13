@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceso - SIMON BOLIVAR I</title>
+    <title>Acceso - SIMÓN BOLÍVAR I</title>
     <link rel="stylesheet" href="styles.css?v=20260918">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -19,7 +19,7 @@
                 <input id="generatorName" type="text" placeholder="Tu nombre" autocomplete="given-name">
                 <label for="generatorSurname">Apellido</label>
                 <input id="generatorSurname" type="text" placeholder="Tu apellido" autocomplete="family-name">
-                <label for="generatorCi">Cédula de identidad</label>
+                <label for="generatorCi">Cdula de identidad</label>
                 <input id="generatorCi" type="text" inputmode="numeric" placeholder="Ej. 12345678" autocomplete="off">
                 <label for="generatorRole">Tipo de usuario</label>
                 <select id="generatorRole">
@@ -39,7 +39,7 @@
         <div class="login-header">
             <h1><i class="fas fa-user-shield"></i></h1>
             <h2>Acceso</h2>
-            <p>Inicia sesión para entrar al sistema escolar</p>
+            <p>Inicia sesin para entrar al sistema escolar</p>
         </div>
 
         <form class="login-form" id="loginForm" novalidate>
@@ -49,10 +49,10 @@
             </div>
 
             <div class="form-group">
-                <label for="password"><i class="fas fa-lock"></i> Contraseña</label>
+                <label for="password"><i class="fas fa-lock"></i> Contrasea</label>
                 <div class="password-input">
-                    <input id="password" type="password" name="password" placeholder="Ingrese su contraseña" autocomplete="current-password" required>
-                    <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                    <input id="password" type="password" name="password" placeholder="Ingrese su contrasea" autocomplete="current-password" required>
+                    <button type="button" class="toggle-password" aria-label="Mostrar contrasea">
                         <i class="fas fa-lock"></i>
                     </button>
                 </div>
@@ -78,12 +78,12 @@
 
             <button type="submit" class="login-submit">
                 <i class="fas fa-sign-in-alt"></i>
-                <span>Iniciar sesión</span>
+                <span>Iniciar sesin</span>
             </button>
         </form>
 
         <div class="login-footer">
-            <a href="#" class="forgot-password" id="forgotPassword">¿Olvidaste tu contraseña?</a>
+            <a href="#" class="forgot-password" id="forgotPassword">Olvidaste tu contrasea?</a>
             <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
         </div>
     </div>
@@ -123,7 +123,7 @@
             }
 
             if (!/^\d+$/.test(ci)) {
-                generatedUser.textContent = 'La cédula debe contener solo números.';
+                generatedUser.textContent = 'La cdula debe contener solo nmeros.';
                 generatedPassword.textContent = '';
                 return;
             }
@@ -139,7 +139,7 @@
             passwordInput.value = password;
             document.getElementById('role').value = role;
             generatedUser.textContent = `Usuario generado: ${username} (${role})`;
-            generatedPassword.textContent = `Contraseña generada: ${password}`;
+            generatedPassword.textContent = `Contrasea generada: ${password}`;
         });
 
         togglePassword.addEventListener('click', () => {
@@ -148,12 +148,12 @@
             togglePassword.innerHTML = isPassword
                 ? '<i class="fas fa-lock-open"></i>'
                 : '<i class="fas fa-lock"></i>';
-            togglePassword.setAttribute('aria-label', isPassword ? 'Ocultar contraseña' : 'Mostrar contraseña');
+            togglePassword.setAttribute('aria-label', isPassword ? 'Ocultar contrasea' : 'Mostrar contrasea');
         });
 
         forgotPassword.addEventListener('click', (event) => {
             event.preventDefault();
-            loginMessage.textContent = 'Contacta con la coordinación para restablecer tu contraseña.';
+            loginMessage.textContent = 'Contacta con la coordinacin para restablecer tu contrasea.';
             loginMessage.className = 'login-message info';
         });
 
@@ -164,13 +164,13 @@
             const passwordValue = passwordInput.value.trim();
 
             if (!emailValue || !passwordValue) {
-                loginMessage.textContent = 'Completa el usuario y la contraseña para continuar.';
+                loginMessage.textContent = 'Completa el usuario y la contrasea para continuar.';
                 loginMessage.className = 'login-message error';
                 return;
             }
 
             if (passwordValue.length < 6) {
-                loginMessage.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+                loginMessage.textContent = 'La contrasea debe tener al menos 6 caracteres.';
                 loginMessage.className = 'login-message error';
                 return;
             }
@@ -181,7 +181,7 @@
                 localStorage.removeItem('schoolUser');
             }
 
-            loginMessage.textContent = 'Inicio de sesión correcto. Redirigiendo...';
+            loginMessage.textContent = 'Inicio de sesin correcto. Redirigiendo...';
             loginMessage.className = 'login-message success';
 
             const destinationByRole = {
@@ -195,5 +195,7 @@
             }, 1200);
         });
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
+

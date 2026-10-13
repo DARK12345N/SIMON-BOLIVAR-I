@@ -730,6 +730,31 @@ body {
     display: none !important;
 }
 
+.library-page .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s ease;
+}
+
+.library-page .hamburger-line {
+    display: block !important;
+    width: 18px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 999px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
 /* Responsive navbar-right adjustments */
 @media (max-width: 1024px) {
     .navbar-right {
